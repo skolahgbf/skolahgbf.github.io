@@ -4,32 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Duvor som sitter</title>
+    <title>Duvor som sitter-clicker</title>
     <style>
     body {
         background-image: url('https://cdn.discordapp.com/attachments/587674315168808980/587676319257460747/at60pYC.jpg');
         background-size: 100vw 100vh;
-        /* Stretchar bakgrund */
     }
     .main {
         font-family: Arial, Helvetica, sans-serif;
-        /* font-weight: bold; */
         display: flex;
         justify-content: center;
         height: 100%;
     }
     .text {
         color: #ffffff;
-        font-size: 0.8vw;
         text-align: center;
         background-color: rgba(1, 1, 1, 0.459);
-        /* border: solid 0.4vh; */
         border-radius: 15px;
         padding: 0;
+        padding-top: 10vh;
         width:50vw;
         height: 25vh;
         margin-top: 35.5vh;
-        display: flex;
+        display: block;
         justify-content: center;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
@@ -37,6 +34,7 @@
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+        line-height: 5px;
     }
     .text:hover {
         background-color: rgba(0, 0, 0, 0.205);
@@ -44,21 +42,36 @@
     .text h1 {
         margin: auto;
         padding: 0;
+        font-size: 3.5vh;
+    }
+    .text h2 {
+        margin: auto;
+        padding: 0;
+        line-height: 3vh;
+        font-size: 3vh;
+    }
+    .text h3 {
+        margin: auto;
+        padding: 0;
+        line-height: 2vh;
+        font-size: 2vh;
     }
     </style>
 </head>
 <body>
     <div class="main">
-        <div class="text" onclick=duva()>
+        <div class="text" onclick="duva(),hello()">
             <h1>Tryck för en ny slumpmässig duva som sitter.</h1>
+            <h3><br><br>Du har bytt duva </h3><h3 id="clicks">-</h3> <h3> gånger.<br><br><h2 id="sjukt">Helt sjukt asså!</h2></h3>
         </div>
     </div>
     <script>
-        //Funktion som byter bakgrunden till en slumpmässig duva
+        //Funktion som byter bakgrunden till en slumpmässig duva när div:en ovan clickas (onclick)
         function duva(){
             //Gör variablen body till css-elementet body, för att förenkla lite
             var body = document.getElementsByTagName('body')[0];
-            //Ger variabeln randomizer ett slumpat tal mellan 0-4
+            //Ger variabeln randomizer ett slumpat tal mellan 0-4.
+            //Variabel randomizer är av typen "number".
             var randomizer = Math.floor(Math.random() * 5);
             //Om variablen randomizer är x, byt bakgrund till den länkade bilden.
             if (randomizer == 0) {
@@ -76,7 +89,55 @@
             else {
                 body.style.backgroundImage = 'url(https://cdn.discordapp.com/attachments/587674315168808980/587676319257460747/at60pYC.jpg)';
             }
-    }
+            //Nedan är till för att byta ut den undre texten
+            //Variabeln randomizer2 är av typen "number" och är till för att välja meddelande
+            var randomizer2 = Math.floor(Math.random() * 10);
+            //Tar det slumpade talet och byter ut variabeln "sjukt"s värde till en ny text. 
+            if (randomizer2 == 0) {
+                //Variabeln "sjukt" är en string
+                sjukt = "Den sitter! Som en hund!";
+            }
+            else if (randomizer2 == 1) {
+                sjukt = "Har du sett?";
+            }
+            else if (randomizer2 == 2) {
+                sjukt = "Vad coolt!";
+            }
+            else if (randomizer2 == 3) {
+                sjukt = "Sitt!";
+            }
+            else if (randomizer2 == 4) {
+                sjukt = "Prisa sittande duvor!";
+            }
+            else if (randomizer2 == 5) {
+                sjukt = "OMG!";
+            }
+            else if (randomizer2 == 6) {
+                sjukt = "Det vackraste jag sett...";
+            }
+            else if (randomizer2 == 7) {
+                sjukt = "Duvor > Allt";
+            }
+            else if (randomizer2 == 8) {
+                sjukt = "Episkt!";
+            }
+            else {
+                sjukt = "Helt sjukt asså!";
+            }
+            //Byter texten med id "sjukt" till en av texterna ovan
+            document.getElementById("sjukt").innerHTML = sjukt;
+        }
+        //Laddar cookien till variablen clicks, för att man ska kunna ladda "spelet". Number() gör att variabeln blir ett nummer istället för en string.
+        var clicks = Number(document.cookie);
+        //När funktionen hello aktiveras (vilket görs via div:en med onclick) läggs ett till i clickantalet
+        function hello() {
+            clicks += 1;
+            //Nedan ändras texten med Id "clicks" till variabeln "clicks"
+            document.getElementById("clicks").innerHTML = clicks;
+            //Sparar cookie så clicksen inte resettas när man stänger sidan
+            document.cookie = clicks;
+            // document.cookie = 0; //För att resetta cookies om det behövs
+        }
     </script>
 </body>
 </html>
