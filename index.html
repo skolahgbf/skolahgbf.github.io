@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Duvor som sitter</title>
+    <style>
+    body {
+        background-image: url('https://cdn.discordapp.com/attachments/587674315168808980/587676319257460747/at60pYC.jpg');
+        background-size: 100vw 100vh;
+        /* Stretchar bakgrund */
+    }
+    .main {
+        font-family: Arial, Helvetica, sans-serif;
+        /* font-weight: bold; */
+        display: flex;
+        justify-content: center;
+        height: 100%;
+    }
+    .text {
+        color: #ffffff;
+        font-size: 0.8vw;
+        text-align: center;
+        background-color: rgba(1, 1, 1, 0.459);
+        /* border: solid 0.4vh; */
+        border-radius: 15px;
+        padding: 0;
+        width:50vw;
+        height: 25vh;
+        margin-top: 35.5vh;
+        display: flex;
+        justify-content: center;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .text:hover {
+        background-color: rgba(0, 0, 0, 0.205);
+    }
+    .text h1 {
+        margin: auto;
+        padding: 0;
+    }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="text" onclick=duva()>
+            <h1>Tryck för en ny slumpmässig duva som sitter.</h1>
+        </div>
+    </div>
+    <script>
+        //Funktion som byter bakgrunden till en slumpmässig duva
+        function duva(){
+            //Gör variablen body till css-elementet body, för att förenkla lite
+            var body = document.getElementsByTagName('body')[0];
+            //Ger variabeln randomizer ett slumpat tal mellan 0-4
+            var randomizer = Math.floor(Math.random() * 5);
+            //Om variablen randomizer är x, byt bakgrund till den länkade bilden.
+            if (randomizer == 0) {
+                body.style.backgroundImage = 'url(https://cdn.discordapp.com/attachments/587674315168808980/587676309006712872/srRUbw5.jpg)';
+            }
+            else if (randomizer == 1) {
+                body.style.backgroundImage = 'url(https://cdn.discordapp.com/attachments/587674315168808980/587676311556849723/rgUza4E.jpg)';
+            }
+            else if (randomizer == 2) {
+                body.style.backgroundImage = 'url(https://cdn.discordapp.com/attachments/587674315168808980/587676314790789152/kbGxcsv.jpg)';
+            }
+            else if (randomizer == 3) {
+                body.style.backgroundImage = 'url(https://cdn.discordapp.com/attachments/587674315168808980/587676318192238613/22GACkx.jpg)';
+            }
+            else {
+                body.style.backgroundImage = 'url(https://cdn.discordapp.com/attachments/587674315168808980/587676319257460747/at60pYC.jpg)';
+            }
+    }
+    </script>
+</body>
+</html>
