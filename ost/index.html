@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <nav>
+        <!-- Logga -->
+        <div class="logo">
+            <!-- <h4>Fina Ostar</h4> -->
+            <!--Nedan är en snabb logga, bara för att hå något bättre än text-->
+            <img src="media/logo.png">
+        </div>
+        <!-- Unordered list med de sidor vi kommer navigera till. -->
+        <ul class="nav-links">
+            <li>
+                <a href="#">Hem</a>
+            </li>
+            <li>
+                <a href="https://varldenshistoria.se/">Historia</a>
+            </li>
+            <li>
+                <a href="https://www.falbygdensost.se/produkter/">Butik</a>
+            </li>
+            <li>
+                <a href="https://www.imdb.com/title/tt0803764/">Kontakt</a>
+            </li>
+        </ul>
+        <!--Burgarem-->
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line3"></div>
+            <div class="line2"></div>
+        </div>
+    </nav>
+    <!--Main Content -->
+    <h2 class="ost">Dagens ost är: </h2>
+    <p id="ost" class="ost1"></p>
+    <!--Script som kan ändra dagens ost snabbt (eller bygga på senare, så den ändras)-->
+    <script>
+        var ost = "Sladdrig och plastig hamburgerost";
+        
+        var day = new Date();
+        var dag = day.getDay();
+
+        if (dag == 0) {
+            ost = "Gorgonzola i konservburk";
+        } else if (dag == 1) {
+            ost = "Smaklös gratängost";
+        } else if (dag == 2) {
+            ost = "Natchoost som smakar kemikalier";
+        } else if (dag == 3) {
+            ost = "Okänd ost från längst in i kylskåpet";
+        } else if (dag == 4) {
+            ost = "En parmesan man köpte på en marknad för tre år sedan";
+        } else if (dag == 5) {
+            ost = "Sladdrig och plastig hamburgerost";
+        } else if (dag == 6) {
+            ost = "Nån lite grå ost som finns på Citygross";
+        }
+
+        document.getElementById("ost").innerHTML = ost;
+    </script>
+    <!--Öppnar scriptet-->
+    <script src="js/app.js">
+    </script>
+</body>
+</html>

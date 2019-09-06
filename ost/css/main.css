@@ -1,0 +1,164 @@
+
+/*Logga*/
+img {
+    margin: 15px;
+}
+/*Bakgrundsbild*/
+body {
+    background-image: url(../media/background.jpg);
+    background-size: 100vw 100vh;
+}
+/*Bakgrund om sidan är mindre än 768px bred*/
+@media screen and (max-width:768px){
+    body {
+        background-image: url(../media/background.jpg);
+        background-size: auto 100vh;
+    }
+}
+/*Text / Sidocontent*/
+.ost {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    font-size: 40px;
+    margin-top: 30vh;
+}
+.ost1 {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    font-size: 20px;
+    margin-top: 5vh;
+}
+/* -------------------------------------------------------------------------- */
+* {
+    /* "Återställer" allt till 0 så man lätt kan starta */
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+nav{
+    display: flex;
+    /* En ny för mig nedanför. Användbart. */
+    justify-content: space-around;
+    /*Se till att itemsen alignar korrekt*/
+    align-items: center;
+    /*Ser till att navbaren inte blir för liten*/
+    min-height: 8vh;
+    /*Bakgrundsfärg på navbaren*/
+    background-color: rgb(72, 19, 97, 0.2);
+    /*Font*/
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/*Utkommenterad för att detta byttes ut mot en bild.*/
+/* .logo {
+    font-family: 'Kaushan Script', cursive;
+    color: rgb(224, 224, 224);
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    font-size: 20px;
+} */
+/*Olika classer som ser till att nav-linkarna är rätt (när fönstret är stort)*/
+.nav-links {
+    /*Centrerar*/
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+.nav-links li {
+    /*Ser till att inga bullets finns*/
+    list-style: none;
+}
+.nav-links a {
+    /*Ändrar färg och tar bort underline (samt ändrar avståndet mellan bokstäver)*/
+    color: rgb(224, 224, 224);
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+.burger {
+    /*Visa inte burgaren (ändras senare)*/
+    display: none;
+    /*När man har musen över burgaren används muspekaren "pointer"*/
+    cursor: pointer;
+}
+.burger div {
+    /*div-taggar i en "större" div-tagg med classen .burger. Dessa divs är det som vi ser som burgarens linjer*/
+    /*Ändrar storlek*/
+    width: 25px;
+    height: 2px;
+    /*Ser till att den syns*/
+    background-color: rgb(224, 224, 224);
+    /*Ser till att det finns mellanrum mellan de tre raderna*/
+    margin: 5px 7px;
+    /*Till animation (när man senare klickar)*/
+    transition: all 0.3s ease;
+}
+/*Om skärmen är liten, öka bredden på den vanliga navbarens listitems*/
+@media screen and (max-width:1024px){
+    .nav-links {
+        /* background-color:red; */
+        display: flex;
+        justify-content: space-around;
+        width: 60%;
+    }
+}
+/*Om man är på en liten skärm (t.ex. mobil), gör om länkarna i navbaren till en burger*/
+@media screen and (max-width:768px){
+    /*Se till att man inte kan scrolla åt sidan och se det vi gömmer där*/
+    .body {
+        overflow-x: hidden;
+    }
+    /*Ökar höjd på navbaren*/
+    nav {
+        height: 25vh;
+    }
+    /*Ändra den vertikala "listan" av länkar (som tidigare fanns i navbaren, men nu finns i burgaren) till en mer traditionell lista.*/
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 75vh;
+        top: 25vh;
+        background-color: rgb(72, 19, 97, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+    /*Förbereder för animation genom att göra texten osynlig.*/
+    .nav-links li {
+        opacity: 0;
+    }
+    /*Ser till att burgaren inte längre är osynlig.*/
+    .burger {
+        display: block;
+    }
+}
+/*Del av animation. Ser till att .nav-active är i rätt position*/
+.nav-active {
+    transform: translateX(0%);
+}
+/*Animation för text*/
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translatex(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+/*Animation för burgare - JS*/
+.toggle .line1{
+    transform: rotate(-45deg) translate(-5px,5px);
+}
+.toggle .line3{
+    opacity: 0;
+}
+.toggle .line2{
+    transform: rotate(45deg) translate(-5px,-5px);
+}
