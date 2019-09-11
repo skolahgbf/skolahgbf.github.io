@@ -66,6 +66,10 @@
         </div>
     </div>
     <script>
+        var anticheat = 20;
+            window.setInterval(function () {
+            anticheat = anticheat + 1;
+        }, 1000);
         //Funktion som byter bakgrunden till en slumpmässig duva när div:en ovan clickas (onclick)
         function duva(){
             //Gör variablen body till css-elementet body, för att förenkla lite
@@ -132,6 +136,11 @@
         //När funktionen hello aktiveras (vilket görs via div:en med onclick) läggs ett till i clickantalet
         function hello() {
             clicks += 1;
+            if (clicks >  anticheat) {
+                clicks = 0;
+                anticheat = 20;
+                document.getElementById("sjukt").innerHTML = "Sluta fuska :(";
+            } 
             //Nedan ändras texten med Id "clicks" till variabeln "clicks"
             document.getElementById("clicks").innerHTML = clicks;
             //Sparar cookie så clicksen inte resettas när man stänger sidan
