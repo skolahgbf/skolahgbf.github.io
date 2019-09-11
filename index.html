@@ -68,7 +68,7 @@
     <script>
         var anticheat = 20;
             window.setInterval(function () {
-            anticheat = anticheat + 1;
+            anticheat = anticheat + 20;
         }, 1000);
         //Funktion som byter bakgrunden till en slumpmässig duva när div:en ovan clickas (onclick)
         function duva(){
@@ -131,8 +131,6 @@
             //Byter texten med id "sjukt" till en av texterna ovan
             document.getElementById("sjukt").innerHTML = sjukt;
         }
-        //Laddar cookien till variablen clicks, för att man ska kunna ladda "spelet". Number() gör att variabeln blir ett nummer istället för en string.
-        var clicks = Number(document.cookie);
         //När funktionen hello aktiveras (vilket görs via div:en med onclick) läggs ett till i clickantalet
         function hello() {
             clicks += 1;
@@ -140,13 +138,20 @@
                 clicks = 0;
                 anticheat = 20;
                 document.getElementById("sjukt").innerHTML = "Sluta fuska :(";
-                window.open("fuskare.gif","_self");
+                document.getElementById("text").style.backgroundImage="url('fuskare.gif')";
             } 
             //Nedan ändras texten med Id "clicks" till variabeln "clicks"
             document.getElementById("clicks").innerHTML = clicks;
             //Sparar cookie så clicksen inte resettas när man stänger sidan
             document.cookie = clicks;
             // document.cookie = 0; //För att resetta cookies om det behövs
+        }
+        //Laddar cookien till variablen clicks, för att man ska kunna ladda "spelet". Number() gör att variabeln blir ett nummer istället för en string.
+        var clicks = Number(document.cookie);
+        var check1 = 0;
+        if (check1 == 0) {
+            anticheat = clicks + 20;
+            check1 = 1;
         }
     </script>
 </body>
