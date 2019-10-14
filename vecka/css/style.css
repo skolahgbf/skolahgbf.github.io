@@ -1,0 +1,78 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #90c0de;
+    color: #1c7bb7;
+    font-family: Arial, serif;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track, ::-webkit-scrollbar-corner, ::-webkit-scrollbar-button  {
+    opacity: 0;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #1c7bb7;
+}
+.current {
+    height: 27vh;
+    width: 100vw;
+    text-align: center;
+    margin: auto;
+}
+.past {
+    transition-duration: 0.5s;
+    opacity: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 32vh;
+    width: 30vw;
+    margin: auto;
+    scrollbar-color: #1c7bb7 rgba(0,0,0,0);
+    scrollbar-width: thin;
+}
+.past:hover {
+    transition-duration: 0.5s;
+    opacity: 1;
+}
+#meme {
+    text-align: center;
+    font-size: 22vh;
+    padding: 0;
+    margin-top: 36vh;
+}
+.small {
+    font-size: 1vw;
+}
+.large {
+    font-size: 1.3vw;
+}
+th {
+    width: 10vw;
+}
+table, tr, th {
+    text-align: left;
+}
+
+@media (max-aspect-ratio: 4/3) {
+    #meme {
+        font-size: 15vh;
+        margin-top: 42.5vh;
+    }
+    .past {
+        width: 70vw;
+        height: 20vh;
+    }
+    th {
+        width: 23vw;
+    }
+    .large {
+        font-size: 4vw;
+    }
+    .small {
+        font-size: 3vw;
+    }
+}
