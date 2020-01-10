@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Question</title>
+    <style>
+    
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: rgb(34, 34, 34);
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 5vh;
+        }
+        h2 {
+            font-size: 4vh;
+        }
+        h3 {
+            font-size: 3.5vh;
+        }
+        h4 {
+            font-size: 3vh;
+        }
+        p {
+            font-size: 3vh;
+        }
+
+
+
+
+
+        div {
+            display: block;
+        }
+        .head {
+            text-align: center;
+            margin-bottom: 5vh;
+        }
+        .pattern table {
+            margin: auto;
+        }
+
+        .pattern td, .pattern td *{
+            height: 18vh;
+            width: 18vh;
+            margin: 0 0.5vh;
+        }
+        
+        .pattern img {
+            border: 2px solid black;
+        }
+
+        .alternatives img, .alternatives input, .alternatives h4 {
+            display: inline-block;
+            transform: translateX(20px);
+        }
+        .alternatives {
+            margin: auto;
+            /* width: 60vw; */
+            text-align: center;
+            /* background-color: rgb(228, 228, 228); */
+        }
+    
+        .alternatives img {
+            height: 10vh;
+        }
+        .alternatives h3 {
+        margin: 3vh 0 1vh 0;
+        }
+        .alternatives h4 {
+            margin-right: 4vh;
+        }
+        .alternatives input {
+            margin: 1vh;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="head">
+        <h1>Question 2</h1>
+        <p>Select the alternative that fits in the empty spot.</p>
+    </div>
+    <div class="pattern">
+        <table>
+            <tr>
+                <td>
+                    <img src="../media/questions/2/1.png" alt="1">
+                </td>
+                <td>
+                    <img src="../media/questions/2/2.png" alt="2">
+                </td>
+                <td>
+                    <img src="../media/questions/2/3.png" alt="3">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../media/questions/2/4.png" alt="4">
+                </td>
+                <td>
+                    <img src="../media/questions/2/5.png" alt="5">
+                </td>
+                <td>
+                    <img src="../media/questions/2/6.png" alt="6">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../media/questions/2/7.png" alt="7">
+                </td>
+                <td>
+                    <img src="../media/questions/2/8.png" alt="8">
+                </td>
+                <td>
+                    <img src="../media/qm.png" alt="Please select the image for this slot">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="alternatives">
+        <table>
+            <form action="">
+                <h3>
+                    Please select your answer
+                </h3>
+                <td>
+                    <tr><img src="../media/questions/2/a.png" alt="A"></tr>
+                    <tr>
+                        <input type="radio" name="a" id="a" value="a" onclick=option(this)>
+                        <h4>A</h4>
+                    </tr>
+                </td>
+                <td>
+                    <tr><img src="../media/questions/2/b.png" alt="B"></tr>
+                    <tr>
+                        <input type="radio" name="b" id="b" value="b" onclick=option(this)>
+                        <h4>B</h4>
+                    </tr>
+                </td>
+                <td>
+                    <tr><img src="../media/questions/2/c.png" alt="C"></tr>
+                    <tr>
+                        <input type="radio" name="c" id="c" value="c" onclick=option(this)>
+                        <h4>C</h4>
+                    </tr>
+                </td>
+                <td>
+                    <tr><img src="../media/questions/2/d.png" alt="D"></tr>
+                    <tr>
+                        <input type="radio" name="d" id="d" value="d" onclick=option(this)>
+                        <h4>D</h4>
+                    </tr>
+                </td>
+            </form>
+        </table>
+    </div>
+</body>
+<script>
+
+var a = document.getElementById("a");
+var b = document.getElementById("b");
+var c = document.getElementById("c");
+var d = document.getElementById("d");
+
+
+function option(x) {
+    // console.log("asd");
+    // console.log(x.value);
+    var optValue = x.value;
+
+    if (optValue == "a") {
+        a.checked = true;
+        b.checked = false;
+        c.checked = false;
+        d.checked = false;
+
+    } else if (optValue == "b") {
+        a.checked = false;
+        b.checked = true;
+        c.checked = false;
+        d.checked = false;
+        
+    } else if (optValue == "c") {
+        a.checked = false;
+        b.checked = false;
+        c.checked = true;
+        d.checked = false;
+
+    } else if (optValue == "d") {
+        a.checked = false;
+        b.checked = false;
+        c.checked = false;
+        d.checked = true;
+
+    }
+
+}
+
+</script>
+</html>

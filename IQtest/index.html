@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MyIQ - Free IQ test</title>
+    <link rel="icon" href="media/icon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+            <img src="media/Logo.png" alt="">
+            <h2>Take The Test!</h2>
+        </div>
+        <div class="text">
+            <h1>Find out your IQ!</h1>
+            <p>Discover your IQ score, completely FREE of charge!<br>You have 20 minutes to complete a series of questions. From your<br>answers, our systems will automatically determine an estimated IQ.</p>
+        </div>
+        <div class="test" id="test">
+            <div class="start" id="start">
+                <div id="startText">
+                    <h1>Click to start the test.</h1>
+                    <p>You will have 20 minutes to complete 20 questions. Your<br>result will be based on your answers and<br>the remaining time. The result will be presented<br>for free, without hidden fees, at the end of the test.</p>
+                </div>
+                <button id="startBTN" onclick=strt()><h3>Start Test</h3></button>
+            </div>
+            <div id="content" class="invisible">
+                <iframe src="" id="frame" frameborder="0" width="100%" height="90%" onclick=start()></iframe>
+                <h3 id="timer">20:00</h3>
+                <button id="next" onclick=next()>Next</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <h6>MyIQ 2020 &#169;<br>All rights reserved</h6>
+    </div>
+</body>
+<script src="js/script.js"></script>
+</html>
