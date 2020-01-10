@@ -11,6 +11,14 @@ var startBTN = document.getElementById("start");
 var nextBTN = document.getElementById("next");
 console.log("loaded");
 
+function full() {
+    var element = document.getElementById("main");
+   if (element.mozRequestFullScreen) {
+          element.mozRequestFullScreen();
+   } else if (element.webkitRequestFullScreen) {
+     element.webkitRequestFullScreen();}
+      }
+
 function strt() {
     console.log("yee");
     page = 1;
